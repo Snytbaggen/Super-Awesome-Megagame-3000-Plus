@@ -9,7 +9,7 @@ public class GameTest {
     public static void main(String[] args) {
         GameBoard gameBoard = new GameBoard(100+15*56, 500);
 
-        GameFrame gameFrame = new GameFrame("Super Awesome Megagame 3000+ v0.2", gameBoard);
+        GameFrame gameFrame = new GameFrame("Super Awesome Megagame 3000+ v0.3", gameBoard);
         gameBoard.startBall();
         gameFrame.setTimer(1000/60);
     }

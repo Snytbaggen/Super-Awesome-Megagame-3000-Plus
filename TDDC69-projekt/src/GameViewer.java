@@ -28,12 +28,18 @@ public class GameViewer extends JComponent {
         //g.fillRect(0, 0, gameBoard.getWindowWidth(), gameBoard.getWindowHeight());
         g.setColor(Color.white);
         g.fillOval(ballCoord.getX(), ballCoord.getY(), gameBoard.getBallSize(), gameBoard.getBallSize());
+
         for (int x = 0; x < 15; x++){
             for(int y = 0; y < 10; y++){
                 g.setColor(gameBoard.getBrickColor(x, y));
                g.fillRect(50+x*56,50+y*21, 55 ,20);
             }
         }
+
+        Coordinate paddleCoord = gameBoard.getPaddleCoord();
+        g.setColor(Color.WHITE);
+        g.fillRect(paddleCoord.getX(), paddleCoord.getY(), gameBoard.getPaddleWidth(), gameBoard.getPaddleHeight());
+
       //  g.fillRect(50,50,55,20);
     }
 

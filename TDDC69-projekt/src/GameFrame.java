@@ -26,6 +26,7 @@ public class GameFrame extends JFrame {
         @Override
         public void actionPerformed(ActionEvent e) {
             gameBoard.moveBall();
+            gameBoard.movePaddle();
             gameViewer.repaint();
         }
     };
@@ -47,6 +48,39 @@ public class GameFrame extends JFrame {
                 System.exit(0);
             }
         });
+
+        gameViewer.getInputMap().put(KeyStroke.getKeyStroke("LEFT"), "move left");
+        gameViewer.getActionMap().put("move left", new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                gameBoard.startMovePaddle('l');
+            }
+        });
+
+        gameViewer.getInputMap().put(KeyStroke.getKeyStroke("released LEFT"), "stop moving left");
+        gameViewer.getActionMap().put("stop moving left", new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                gameBoard.stopMovePaddle('l');
+            }
+        });
+
+        gameViewer.getInputMap().put(KeyStroke.getKeyStroke("RIGHT"), "move right");
+        gameViewer.getActionMap().put("move right", new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                gameBoard.startMovePaddle('r');
+            }
+        });
+
+        gameViewer.getInputMap().put(KeyStroke.getKeyStroke("released RIGHT"), "stop moving right");
+        gameViewer.getActionMap().put("stop moving right", new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                gameBoard.stopMovePaddle('r');
+            }
+        });
+
 
     }
 }
