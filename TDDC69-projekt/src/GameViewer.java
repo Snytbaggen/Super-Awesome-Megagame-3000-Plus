@@ -24,12 +24,17 @@ public class GameViewer extends JComponent {
     public void paintComponent (final Graphics g){
         Coordinate ballCoord = gameBoard.getBallCoord();
         g.setColor(Color.black);
-        g.fillRect(0, 0, gameBoard.getWindowWidth(), gameBoard.getWindowHeight());
+        g.fillRect(0, 0, 100+15*56, 500+10*21);
+        //g.fillRect(0, 0, gameBoard.getWindowWidth(), gameBoard.getWindowHeight());
         g.setColor(Color.white);
         g.fillOval(ballCoord.getX(), ballCoord.getY(), gameBoard.getBallSize(), gameBoard.getBallSize());
-
-
-
+        for (int x = 0; x < 15; x++){
+            for(int y = 0; y < 10; y++){
+                g.setColor(gameBoard.getBrickColor(x, y));
+               g.fillRect(50+x*56,50+y*21, 55 ,20);
+            }
+        }
+      //  g.fillRect(50,50,55,20);
     }
 
 }

@@ -38,7 +38,7 @@ public class GameFrame extends JFrame {
         super.setTitle(name);
         super.setLayout(new FlowLayout());
         super.add(gameViewer);
-        super.setSize(dimension.width + 30, dimension.height + 70);
+        super.setSize(200 + 20*51, dimension.height + 70);
         super.setVisible(true);
 
         super.addWindowListener(new WindowAdapter() {
