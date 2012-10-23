@@ -1,0 +1,74 @@
+import java.awt.*;
+import java.io.Serializable;
+
+/**
+ * Created with IntelliJ IDEA.
+ * User: Daniel
+ * Date: 2012-09-27
+ * Time: 15:29
+ * To change this template use File | Settings | File Templates.
+ */
+public class Brick implements Serializable {
+  private Type type;
+
+  public Brick(Type type){
+    this.type = type;
+  }
+
+  public Type getType(){
+      return type;
+  }
+
+  public Color getColor(){
+      return type.getColor();
+  }
+
+   public void nextType(){
+       if (type == null){
+           type = Type.ONE_HIT;
+       }else switch (type){
+               case ONE_HIT:
+                   type = Type.TWO_HIT;
+                   return;
+               case TWO_HIT:
+                   type = Type.THREE_HIT;
+                   return;
+               case THREE_HIT:
+                   type = Type.INDESTRUCTIBLE;
+                   return;
+               case INDESTRUCTIBLE:
+                   type = Type.POWERUP;
+                   return;
+               case POWERUP:
+                   type = Type.ONE_HIT;
+                   return;
+               default:
+                   type = null;
+           }
+   }
+
+    public void previousType(){
+        if (type == null){
+            type = Type.INDESTRUCTIBLE;
+        }else switch (type){
+            case ONE_HIT:
+                type = Type.POWERUP;
+                return;
+            case TWO_HIT:
+                type = Type.ONE_HIT;
+                return;
+            case THREE_HIT:
+                type = Type.TWO_HIT;
+                return;
+            case INDESTRUCTIBLE:
+                type = Type.THREE_HIT;
+                return;
+            case POWERUP:
+                type = Type.INDESTRUCTIBLE;
+                return;
+            default:
+                type = null;
+        }
+    }
+
+}

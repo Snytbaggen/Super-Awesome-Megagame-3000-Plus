@@ -10,18 +10,10 @@ import java.awt.*;
  * To change this template use File | Settings | File Templates.
  */
 public enum Type {
-    ONE_HIT (Color.GREEN),
-    TWO_HIT (Color.YELLOW),
-    THREE_HIT (Color.RED),
-    INDESTRUCTIBLE(Color.GRAY);
-
-    private final Color color;
-    Type(Color color){
-        this.color = color;
-    }
-
-    Color getColor(){
-        return color;
-    }
-
+    ONE_HIT,
+    TWO_HIT,
+    THREE_HIT,
+    UNCHANGEABLE,
+    POWERUP,
+    EMPTY;
 }

@@ -1,3 +1,8 @@
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+
 /**
  * Created with IntelliJ IDEA.
  * User: Daniel
@@ -6,11 +11,9 @@
  * To change this template use File | Settings | File Templates.
  */
 public class GameTest {
-    public static void main(String[] args) {
-        GameBoard gameBoard = new GameBoard(100+15*56, 500);
-
-        GameFrame gameFrame = new GameFrame("Super Awesome Megagame 3000+ v0.3", gameBoard);
-        gameBoard.startBall();
+    public static void main(String[] args){
+        GameBoard gameBoard = new GameBoard();
+        GameFrame gameFrame = new GameFrame("Super Awesome Megagame 3000+ v1.0", gameBoard);
         gameFrame.setTimer(1000/60);
     }
 }
